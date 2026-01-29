@@ -1,0 +1,48 @@
+services:
+  db-comment:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: forum_db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: forum-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  user-service:
+    build: ./user-service
+    container_name: forum-user-service
+    ports:
+      - "3001:3001"
+    depends_on:
+      - rabbitmq
+
+  comment-service:
+    build: ./comment-service
+    container_name: forum-comment-service
+    ports:
+      - "3002:3002"
+    depends_on:
+      - rabbitmq
+      - db-comment
+
+  frontend:
+    build:
+      context: ./frontend-laravel
+      dockerfile: Dockerfile
+    container_name: forum-laravel-frontend
+    ports:
+      - "3000:8000"
+    volumes:
+      - ./frontend-laravel:/var/www
+    depends_on:
+      - user-service
+      - comment-service
+    links:
+      - user-service
+      - comment-service
