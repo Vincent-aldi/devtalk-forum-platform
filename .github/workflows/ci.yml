@@ -81,4 +81,4 @@ jobs:
         run: touch .env
 
       - name: Build Docker Compose Images
-        run: docker-compose build --parallel
+        run: docker compose build --parallel
