@@ -15,3 +15,4 @@ Sistem ini terdiri dari beberapa komponen utama:
 3. Dockerized: Seluruh layanan dapat dijalankan hanya dengan satu perintah menggunakan Docker Compose.
 4. CI/CD Ready: Dilengkapi dengan GitHub Actions untuk otomatisasi pengujian dan pembangunan aplikasi.
 
+
