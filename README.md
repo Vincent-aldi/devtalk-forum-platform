@@ -1,4 +1,5 @@
-🚀 Platform Komentar Berbasis Forum (Microservices)
+Platform Komentar Berbasis Forum (Microservices)
+
 Aplikasi forum diskusi full-stack yang dibangun menggunakan arsitektur mikroservis modern. Proyek ini mendemonstrasikan komunikasi antar-layanan menggunakan HTTP (Synchronous) dan RabbitMQ (Asynchronous/Event-Driven).
 
 🏗️ Arsitektur Sistem
@@ -14,5 +15,6 @@ Sistem ini terdiri dari beberapa komponen utama:
 2. Post & Manage Comments: CRUD komentar secara langsung melalui Comment Service menggunakan database MySQL.
 3. Dockerized: Seluruh layanan dapat dijalankan hanya dengan satu perintah menggunakan Docker Compose.
 4. CI/CD Ready: Dilengkapi dengan GitHub Actions untuk otomatisasi pengujian dan pembangunan aplikasi.
+
 
 
